@@ -7,6 +7,26 @@
 
 <meta name="description" content="Premium cricket predictions, live match updates, and expert analysis by DHANUSH RAJA. Join our Telegram community now.">
 
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2096208827607314');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2096208827607314&ev=PageView&noscript=1"/>
+</noscript>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
@@ -28,28 +48,33 @@ tailwind.config = {
 }
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient 5s ease infinite;
+  animation: gradient 6s ease infinite;
 }
+
 .glass {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.45);
   backdrop-filter: blur(22px);
   border: 1px solid rgba(255,255,255,0.15);
 }
+
 .glow {
-  box-shadow: 0 0 35px rgba(255,180,0,.7), 0 0 90px rgba(255,80,0,.45);
+  box-shadow: 0 0 25px rgba(255,180,0,.6), 0 0 70px rgba(255,80,0,.35);
 }
+
 .pulse-btn {
   animation: pulse 1.6s infinite;
 }
+
 @keyframes pulse {
   0% { transform: scale(1); }
-  50% { transform: scale(1.06); }
+  50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+
 .shine:hover {
   filter: brightness(1.2);
-  transform: scale(1.05);
-  transition: .3s;
+  transform: scale(1.04);
+  transition: .25s ease;
 }
 </style>
 </head>
@@ -59,7 +84,7 @@ tailwind.config = {
 <!-- Background -->
 <div class="fixed inset-0">
   <img src="https://github.com/mrxsetup/dhanushraja05/blob/main/dhanushimage.jpg?raw=true"
-       class="w-full h-full object-cover opacity-35">
+       class="w-full h-full object-cover opacity-35" loading="lazy">
   <div class="absolute inset-0 bg-gradient-to-br from-yellow-900/90 via-black/70 to-orange-900/90"></div>
 </div>
 
@@ -79,7 +104,7 @@ tailwind.config = {
 <div class="flex gap-4 bg-white/5 p-5 rounded-xl border border-white/10 mb-6">
 
   <div class="w-24 h-24 rounded-xl bg-gradient-to-r from-yellow-500 to-red-500 p-[3px] glow">
-    <img src="https://github.com/mrxsetup/THE-BIG-BULL/blob/main/BIGBULLIMAGE.jpg?raw=true"
+    <img src="https://github.com/mrxsetup/dhanushraja05/blob/main/dhanushimage.jpg?raw=true"
          alt="Dhanush Raja Cricket Analyst"
          loading="lazy"
          class="rounded-xl w-full h-full object-cover">
@@ -99,18 +124,18 @@ tailwind.config = {
 </div>
 
 <!-- TELEGRAM BUTTON -->
-<a href="https://t.me/+Vali7bAq74diZTNl" target="_blank" class="block pulse-btn mb-6">
+<a id="joinBtn" href="https://t.me/+Vali7bAq74diZTNl" target="_blank" class="block pulse-btn mb-6">
 
   <div class="bg-gradient-to-r from-yellow-600 to-red-600 p-5 rounded-xl shadow-xl shine">
     <div class="flex justify-center items-center gap-3 text-xl font-bold">
-      JOIN LIVE TELEGRAM
+      🚀 JOIN LIVE TELEGRAM
     </div>
   </div>
 
 </a>
 
 <!-- FEATURES -->
-<div class="space-y-3">
+<div class="space-y-3 text-sm">
   <div class="bg-white/5 p-4 rounded-xl">✔ Expert Cricket Analysis</div>
   <div class="bg-white/5 p-4 rounded-xl">⚡ Live Match Updates</div>
   <div class="bg-white/5 p-4 rounded-xl">👥 Strong Cricket Community</div>
@@ -133,13 +158,30 @@ let target = 50000;
 let current = 0;
 
 let counter = setInterval(() => {
-  current += Math.ceil(target / 200);
+  let step = Math.ceil((target - current) / 20);
+  current += step;
+
   if (current >= target) {
     current = target;
     clearInterval(counter);
   }
+
   count.innerText = current.toLocaleString();
-}, 30);
+}, 40);
+</script>
+
+<!-- ANTI DOUBLE CLICK -->
+<script>
+let clicked = false;
+document.getElementById("joinBtn").addEventListener("click", function(e){
+  if(clicked){
+    e.preventDefault();
+  }
+  clicked = true;
+
+  // Track Lead Event on Join Click
+  fbq('track', 'Lead');
+});
 </script>
 
 </body>
